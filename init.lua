@@ -196,6 +196,7 @@ rtp:prepend(lazypath)
 -- NOTE: Here is where you install your plugins.
 require('lazy').setup({
   -- NOTE: Plugins can be added via a link or github org/name. To run setup automatically, use `opts = {}`
+  { import = 'kickstart.plugins' },
   { 'NMAC427/guess-indent.nvim', opts = {} },
   {
     'tribela/transparent.nvim',
@@ -709,6 +710,10 @@ require('lazy').setup({
         --
         -- See :h blink-cmp-config-keymap for defining your own keymap
         preset = 'default',
+
+        -- Fix: Allow <Esc> to exit insert mode instead of just closing completion menu
+        -- Use <C-e> to explicitly hide the completion menu
+        ['<Esc>'] = {},
 
         -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
         --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
